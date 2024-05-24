@@ -1,0 +1,12 @@
+Sentences count: 12
+Declaritive sentences count: 11
+Exclamation sentences count: 1
+Interrogative sentences count: 0
+Median of sentences size: 8.916666666666666
+Median word: 5.834951456310679
+Emojis count: 1
+Binary list: ['10101010', '0001']
+Vowel and consonant: ['ipsum', 'amet', 'adipiscing', 'elit', 'incididunt', 'ut', 'et', 'aliqua', 'arcu', 'odio', 'arcu', 'at', 'amet', 'eget', 'arcu', 'et', 'ullamcorper', 'imperdiet', 'in', 'aliquam', 'ut', 'amet', 'Adipiscing', 'elit', 'et', 'et', 'et', 'ac']
+Words with vowel: 55
+Chars: {'L': 3, 'o': 31, 'r': 42, 'e': 63, 'm': 30, ' ': 102, 'i': 57, 'p': 18, 's': 40, 'u': 47, 'd': 19, 'l': 27, 't': 51, 'a': 48, ',': 4, 'c': 22, 'n': 36, 'g': 6, 'b': 11, 'q': 9, '.': 12, 'v': 10, 'S': 3, 'h': 2, '\n': 6, '!': 1, ':': 1, ')': 1, 'T': 1, 'M': 1, 'V': 1, 'f': 2, 'j': 1, 'A': 1, 'H': 1, '1': 7, '0': 8, '2': 1}
+words after comma: ['consectetur', 'ligula', 'quis', 'sed']
