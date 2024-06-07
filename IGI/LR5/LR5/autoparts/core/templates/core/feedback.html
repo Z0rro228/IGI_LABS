@@ -1,0 +1,9 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    {% for feedback_item in feedback %}
+        <div>
+            <p>{{ feedback_item.feedback }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

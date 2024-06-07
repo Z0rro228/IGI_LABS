@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <h1>Список клиентов:</h1>
+    <ul>
+        {% for client in clients %}
+            <li><p>{{ client.user.first_name }} {{ client.user.last_name }}</p></li>
+        {% endfor %}
+    </ul>
+    <h1>Средний возраст клиентов: {{ ages_mean }}</h1>
+    <h1>Медиана возрастов клиентов: {{ ages_median }}</h1>
+    <h1>Сумма продаж: {{ deals_sum }}</h1>
+    <h1>Общая выручка: {{ total_revenue }}</h1>
+    <h1>Товары, отсортированные по популярности:</h1>
+    <ul>
+        {% for item in sorted_items %}
+            <li>
+                <h1>Название: {{ item.name }}</h1>
+                <img src="{{ item.image.url }}" style="width: 400px"/>
+                <h2>Цена: {{ item.price }}$</h2>
+                <h2>Артикул: {{ item.article }}</h2>
+                <h2>Поставщик: {{ item.supplier.name }}, {{ item.supplier.address }}, {{ item.supplier.phone_number }}</h2>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

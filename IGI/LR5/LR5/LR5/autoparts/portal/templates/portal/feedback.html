@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    {% for feedback_item in feedback %}
+        <div>
+            <h3>Отзыв от {{ feedback_item.user_name }}:</h3>
+            <p>Оценка: {{ feedback_item.rate }}</p>
+            <p>{{ feedback_item.feedback }}</p>
+            <p>Добавлен: {{ feedback_item.creation_date }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

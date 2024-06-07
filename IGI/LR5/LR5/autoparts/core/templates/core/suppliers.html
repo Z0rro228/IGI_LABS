@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    {% for supplier in suppliers %}
+        <div>
+            <h1>{{ supplier.name }}</h1>
+            <p>Адрес: {{ supplier.address }}</p>
+            <p>Телефон: {{ supplier.phone_number }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

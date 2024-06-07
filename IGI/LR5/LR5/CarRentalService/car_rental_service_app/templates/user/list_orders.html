@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Список купленых машин{% endblock title %}
+{% block header %}Список купленых машин{% endblock header %}
+{% block content %}
+  {% for order in orders %}
+    <div
+      style="
+        display: flex;
+        align-items: start;
+        border-radius: 10px;    
+        border: 1px solid black;
+        margin: 10px 0px;
+      "
+    >
+      <div style="margin: 0px 0px 0px 20px">
+        <p>Машина: {{ order.car.brand.name }} {{ order.car.model }}</p>
+        <p>Цена машины: {{ order.car.price }}</p>
+        <p>Сумма скидки: {{ order.discount_amount }}</p>
+        <p>Скидка: {{ order.discount.name }} ({{ order.discount.percent }}%)</p>
+        <p>Конечная цена: {{ order.final_sum }}</p>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock content %}

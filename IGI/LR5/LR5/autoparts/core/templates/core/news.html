@@ -1,0 +1,10 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    {% for news_item in news %}
+        <div>
+            <h1>{{ news_item.title }}</h1>
+            <p>{{ news_item.description }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

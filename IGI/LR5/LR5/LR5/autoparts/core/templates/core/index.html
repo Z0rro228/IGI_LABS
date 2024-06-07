@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block content %}
+    <div>
+        {% if user.is_authenticated %}
+            <h2>Текущая временная зона: UTC{{ tz }}</h2>
+            <h2>Текущая дата: {{ current_date }}</h2>
+        {% endif %}
+        {% if user.is_authenticated and user.is_customer %}
+            <div>
+                <h2>Оставьте свой отзыв:</h2>
+                <form action="{% url "accept_feedback" %}" method="POST">
+                    {% csrf_token %}
+                    {{ feedback_form.as_p }}
+                    <br>
+                    <button class="form-control" type="submit">Отправить отзыв</button>
+                </form>
+            </div>
+        {% endif %}
+        <form action="{% url "home" %}">
+            {{ search_form.as_p }}
+            <br>
+            <button class="form-control" type="submit">Найти</button>
+        </form>
+        {% for item in items %}
+            <div>
+                <h1>Название: {{ item.name }}</h1>
+                <img src="{{ item.image.url }}" style="width: 400px"/>
+                <h2>Цена: {{ item.price }}$</h2>
+                <h2>Артикул: {{ item.article }}</h2>
+                <h2>Поставщик: {{ item.supplier.name }}, {{ item.supplier.address }}, {{ item.supplier.phone_number }}</h2>
+                {% if user.is_authenticated %}
+                    {% if user.is_employee or user.is_admin %}
+                        <p>Цена поставщика: {{ item.supplier_price }}</p>
+                    {% endif %}
+                    {% if not item.is_sold %}
+                        <form action="{% url "buy_item" item_id=item.id%}" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <br>
+                            <button class="form-control" type="submit">Купить</button>
+                        </form>
+                    {% else %}
+                        <h3>Sold!</h3>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

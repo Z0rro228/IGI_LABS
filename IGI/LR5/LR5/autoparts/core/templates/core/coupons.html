@@ -1,0 +1,10 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <form action="{% url "enter_coupon"%}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button class="form-control" type="submit">Ввести купон</button>
+    </form>
+{% endblock %}
