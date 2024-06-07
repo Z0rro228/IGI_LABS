@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <script>
+            // Timezone settings
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone; // e.g. "America/New_York"
+            document.cookie = "django_timezone=" + timezone;
+        </script>
+        <nav>
+            <ul>
+                <li><a href="{% url "home" %}">Главная</a></li>
+                <li><a href="{% url "about" %}">О компании</a></li>
+                <li><a href="{% url "news" %}">Новости</a></li>
+                <li><a href="{% url "faq" %}">Часто задаваемые вопросы</a></li>
+                <li><a href="{% url "contacts" %}">Контакты</a></li>
+                <li><a href="{% url "policy" %}">Политика конфиденциальности</a></li>
+                <li><a href="{% url "vacancies" %}">Вакансии</a></li>
+                <li><a href="{% url "feedback" %}">Отзывы</a></li>
+                <li><a href="{% url "joke" %}">Шутка</a></li>
+                <li><a href="{% url "nationalize" %}">Национальность</a></li>
+                <li><a href="{% url "places" %}">Точки самовывоза</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url "enter_coupon" %}">Промокоды и купоны</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    {% if user.is_admin or user.is_employee %}
+                        <li><a href="{% url "create_faq" %}">Создать FAQ</a></li>
+                        <li><a href="{% url "update_faq" %}">Обновить FAQ</a></li>
+                        <li><a href="{% url "delete_faq" %}">Удалить FAQ</a></li>
+                        <li><a href="{% url "suppliers" %}">Поставщики</a></li>
+                        <li><a href="{% url "deals" %}">Продажи</a></li>
+                        <li><a href="{% url "statistics" %}">Статистика</a></li>
+                    {% endif %}
+                    <li><a href="{% url "logout" %}">Выход</a></li>
+                {% else %}
+                    <li><a href="{% url "reg" %}">Регистрация</a></li>
+                    <li><a href="{% url "login" %}">Вход</a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

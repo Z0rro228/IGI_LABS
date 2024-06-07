@@ -1,0 +1,10 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    {% for vacancy in vacancies %}
+        <div>
+            <h1>{{ vacancy.name }}</h1>
+            <p>{{ vacancy.description }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

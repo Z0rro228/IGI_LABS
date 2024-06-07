@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Список проданных машин{% endblock title %}
+{% block header %}Список проданных машин{% endblock header %}
+{% block content %}
+  {% for order in orders %}
+    <div
+      style="
+        display: flex;
+        align-items: start;
+        border-radius: 10px;    
+        border: 1px solid black;
+        margin: 10px 0px;"
+    >
+      <div style="margin: 0px 0px 0px 20px">
+        <p>Машина: {{ order.car.brand.name }} {{ order.car.model }}</p>
+        <p>Цена: {{ order.car.price }}</p>
+        <p>Сумма скидки: {{ order.discount_amount }}</p>
+        <p>Конечная сумма машины: {{ order.final_sum }}</p>
+        <p>Клиент:</p>
+        <div
+        style="display: flex;
+        align-items: start;
+        border-radius: 10px;
+        border: 1px dotted black;
+        margin: 10px 0px;
+        padding: 0px 10px 0px 0px;">
+        <div>
+        <img
+            src="{{ order.client.image.url }}"
+            height="300"
+            style=
+              "margin: 10px 0px 10px 10px; 
+              border-radius: 10px;"
+        />
+        </div>
+        <div style="margin: 0px 0px 0px 20px">
+            <h3>{{ order.client.surname }} {{ order.0.client.name }} {{ order.client.patronymic }}</h3>
+            <p>Никнейм: {{ order.client.user.username }}</p>
+            <p>Электронная почта: {{ order.client.email }}</p>
+            <p>Номер телефона: {{ order.client.phone_number }}</p>
+            <p>Адрес: {{ order.client.address }}</p>
+            <p>Дата рождения: {{ order.client.birthday_date }}</p>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock content %}

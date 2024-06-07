@@ -1,0 +1,9 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <div>
+        {% for deal in deals %}
+            <p>Время - {{ deal.date }}, количество - {{ deal.quantity }}, цена за одну - {{ deal.price }}, сумма - {{ deal.total_cost }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

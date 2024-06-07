@@ -1,0 +1,10 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    {% for contact in contacts %}
+        <div>
+            <h1>{{ contact.name }}</h1>
+            <p>{{ contact.contact }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    {% for faq_item in faq %}
+        <div>
+            <h1>{{ faq_item.question }}</h1>
+            <h2>{{ faq_item.answer }}</h2>
+            <p>Дата и время добавления: {{ faq_item.date }} UTC</p>
+        </div>
+    {% endfor %}
+{% endblock %}
